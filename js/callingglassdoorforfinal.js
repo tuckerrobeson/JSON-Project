@@ -23,7 +23,7 @@ $(function() {
                 //The first argument submitted to the .getJSON method is the URL string, and we add in the variables industry, uip, and uAgent
                 //this is because Glassdoor's API requires certain items and formatting within request URL submissions
 
-                $.getJSON("http://api.glassdoor.com/api/api.htm?v=1&format=json&callback=?&t.p=70977&t.k=e5CNsNJMxw7&action=employers&q=" + industry + "&userip=" + uip + "&useragent=" + uAgent, function(data) {
+                $.getJSON("https://api.glassdoor.com/api/api.htm?v=1&format=json&callback=?&t.p=70977&t.k=e5CNsNJMxw7&action=employers&q=" + industry + "&userip=" + uip + "&useragent=" + uAgent, function(data) {
                   //unfortunately, their API limits each JSON object returned to 10 objects/the first page of results on their site
                   //I attempted to iterate using both recursion and a standard for loop
                   //this did not work due the fact that the AJAX calls were not complete but the loops would continue and it would break the code when it would try to reference an unreturned JSON object
