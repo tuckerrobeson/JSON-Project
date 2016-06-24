@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Robeson Final Project</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" type="text/css" href="https://www.google.com/fonts/specimen/Rajdhani"></link>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/callingglassdoorforfinal.js"></script>
+
+<!--using ipify API to get client-side ip address and store in JS variable to input
+into API call url submission to Glassdoor's API-->
+<script type="text/javascript">
+//create global variable uip that will hold host ip address
+  var uip = "";
+  var uAgent = encodeURIComponent(navigator.userAgent);
+</script>
+<script type="application/javascript">
+  $(function() {
+    //this pull the json object back containing the ip address of the host/viewer of page
+    $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+      function(json) {
+        uip = json.ip;
+      }
+    );
+  });
+</script>
+
+</head>
+<body>
+
+<div class="title">
+
+		<h1>Calling Glassdoor API and Displaying JSON Data Returned</h1>
+		<h4>
+      The goal is to create a basic tool to call to Glassdoor's database of reviews
+      and information about selected companies, and then return the reviews for analysis.
+      <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+		</h4>
+
+		Choose an Industry Filter:
+		<select>
+			<option>Pharmaceuticals</option>
+      <option>Trucking</option>
+      <option>Software</option>
+      <option>Construction</option>
+	</select>
+
+    <button>Drum Roll Please...</button>
+
+</div>
+
+<hr/>
+
+<div class="content"></div>
+
+<div id="map"></div>
+
+
+
+
+</body>
+</html>
